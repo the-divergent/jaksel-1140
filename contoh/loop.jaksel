@@ -1,0 +1,27 @@
+// julid: demo semua jenis loop
+spill("--- selama ---")
+bestie i = 0
+selama i < 3 {
+    spill("i = " + teks(i))
+    i = i + 1
+}
+
+spill("--- stalk ---")
+stalk buah dalam ["apel", "mangga", "duku"] {
+    kalo buah == "mangga" {
+        skip
+    }
+
+    spill("suka " + buah)
+}
+
+spill("--- gamon + ghosting ---")
+bestie n = 0
+gamon {
+    n = n + 1
+    kalo n >= 3 {
+        ghosting
+    }
+}
+
+spill("keluar gamon, n = " + teks(n))

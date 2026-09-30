@@ -1,0 +1,15 @@
+// julid: error handling ala Jaksel
+yolo {
+    spill("coba bagi nol...")
+    bestie x = 10 / 0
+} yaudah e {
+    spill("ketangkep: " + e)
+}
+
+yolo {
+    red_flag "ini red flag manual!"
+} yaudah {
+    spill("yaudah, lanjut...")
+}
+
+spill("program tetap jalan, valid!")

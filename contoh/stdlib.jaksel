@@ -1,0 +1,16 @@
+// Stdlib mini: rentang, acak, waktu
+spill("rentang(5): {rentang(5)}")
+spill("rentang(2, 9, 3): {rentang(2, 9, 3)}")
+
+stalk i dalam rentang(3) {
+    spill("iterasi {i}")
+}
+
+bestie dadu = acak(1, 7)
+kalo dadu >= 1 dan dadu <= 6 {
+    spill("dadu valid, bestie")
+} plot_twist {
+    spill("dadu gimmick?!")
+}
+
+spill("waktu epoch jalan: {waktu() > 0}")

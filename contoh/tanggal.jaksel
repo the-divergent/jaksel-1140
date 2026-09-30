@@ -1,0 +1,5 @@
+// julid: tanggal dan waktu
+spill(tanggal())
+spill(tanggal("%d-%m-%Y"))
+spill(tanggal("%H:%M"))
+spill("epoch: " + teks(waktu() > 0))

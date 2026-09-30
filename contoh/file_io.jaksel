@@ -1,0 +1,8 @@
+// julid: baca tulis file (path relatif = relatif ke folder file ini)
+bestie path = "_tmp_io.txt"
+tulis_file(path, "baris satu\n")
+tambah_file(path, "baris dua\n")
+tambah_file(path, "baris tiga\n")
+bestie isi = baca_file(path)
+spill(isi)
+spill(panjang(isi.pisah("\n")))

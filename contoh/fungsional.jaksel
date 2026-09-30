@@ -1,0 +1,27 @@
+// julid: fungsi tingkat tinggi — petakan, saring, kumpulkan
+talent kuadrat(x) {
+    balikin x * x
+}
+
+talent genap(x) {
+    balikin x % 2 == 0
+}
+
+talent tambah(a, b) {
+    balikin a + b
+}
+
+bestie angka = [1, 2, 3, 4, 5]
+spill(petakan(angka, kuadrat))
+spill(saring(angka, genap))
+spill(kumpulkan(angka, tambah, 0))
+
+// chaining: saring dulu baru petakan
+spill(petakan(saring(angka, genap), kuadrat))
+
+// petakan juga bisa buat teks
+talent ke_besar(huruf) {
+    balikin huruf.besar()
+}
+
+spill(petakan("jaksel", ke_besar))

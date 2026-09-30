@@ -1,0 +1,21 @@
+// Interpolasi string: "Halo, {nama}!"
+// Tulis {ekspresi} di dalam string, otomatis diganti nilainya.
+bestie nama = "DIVERGENT"
+bestie umur = 21
+
+spill("Halo, {nama}! Umurmu {umur} tahun.")
+spill("Tahun depan umurmu {umur + 1}, bestie.")
+
+bestie belanjaan = ["kopi", "indomie", "susu"]
+spill("Bawa {panjang(belanjaan)} barang: {belanjaan}")
+
+spill("Status: {valid}, lawannya {gimmick}, kosongnya {zonk}")
+
+// kurung kurawal literal pakai dobel: {{ }}
+spill("Kurung kurawal literal: {{bukan variabel}}")
+
+talent sapa(n) {
+    balikin "Halo, {n}!"
+}
+
+spill(sapa("Budi"))

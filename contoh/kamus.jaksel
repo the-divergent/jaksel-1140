@@ -1,0 +1,14 @@
+// julid: main sama daftar & kamus
+bestie biodata = {"nama": "Budi", "umur": 20, "kota": "Jakarta Selatan"}
+
+spill(biodata["nama"] + " umur " + teks(biodata.umur))
+biodata["hobi"] = "healing"
+biodata.kota = "Jaksel"
+spill("hobi: " + biodata["hobi"] + ", kota: " + biodata.kota)
+
+bestie angka2 = [1, 2, 3]
+angka2[0] = 99
+spill(angka2)
+spill("panjang: " + teks(panjang(angka2)))
+spill("index negatif: " + teks(angka2[-1]))
+spill("teks di-index: " + "jaksel"[0])

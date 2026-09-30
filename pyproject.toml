@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jakselscript"
+version = "0.6.0"
+description = "Bahasa pemrograman guyonan berbahasa gaul Jaksel — spill, kepo, gamon, ghosting."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+keywords = ["esolang", "indonesia", "jaksel", "programming-language"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Interpreters",
+]
+
+[project.scripts]
+jaksel = "jaksel.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/the-divergent/jakselscript"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["jaksel*"]
+
+[tool.setuptools.package-data]
+jaksel = ["std/*.jaksel"]

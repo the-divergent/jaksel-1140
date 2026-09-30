@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# JakselScript
+.progress.json
+tes/_tmp_*.jaksel
+tes/_tmp_*.py
+
+# VS Code extension
+vscode-jakselscript/*.vsix
+vscode-jakselscript/node_modules/

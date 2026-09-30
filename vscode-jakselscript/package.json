@@ -59,7 +59,7 @@
   "license": "MIT",
   "name": "jakselscript",
   "publisher": "the-divergent",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "main": "./client/extension.js",
   "activationEvents": [
     "onLanguage:jaksel"

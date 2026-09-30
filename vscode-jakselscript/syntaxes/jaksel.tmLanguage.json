@@ -1,0 +1,102 @@
+{
+  "fileTypes": [
+    "jaksel"
+  ],
+  "name": "JakselScript",
+  "patterns": [
+    {
+      "include": "#komentar"
+    },
+    {
+      "include": "#string"
+    },
+    {
+      "include": "#keyword-kontrol"
+    },
+    {
+      "include": "#keyword-nilai"
+    },
+    {
+      "include": "#operator-kata"
+    },
+    {
+      "include": "#angka"
+    },
+    {
+      "include": "#definisi-fungsi"
+    },
+    {
+      "include": "#fungsi-bawaan"
+    },
+    {
+      "include": "#panggil-fungsi"
+    }
+  ],
+  "repository": {
+    "angka": {
+      "match": "\\b\\d+(\\.\\d+)?\\b",
+      "name": "constant.numeric.jaksel"
+    },
+    "definisi-fungsi": {
+      "captures": {
+        "1": {
+          "name": "keyword.control.jaksel"
+        },
+        "2": {
+          "name": "entity.name.function.jaksel"
+        }
+      },
+      "match": "\\b(talent)\\s+([A-Za-z_][A-Za-z0-9_]*)",
+      "name": "meta.function.jaksel"
+    },
+    "keyword-kontrol": {
+      "match": "\\b(bestie|kalo|plot_twist|selama|gamon|stalk|dalam|ghosting|skip|talent|balikin|yolo|yaudah|akhirnya|red_flag|collab|cabut|kelas|warisi|lahir|ini|ortu)\\b",
+      "name": "keyword.control.jaksel"
+    },
+    "keyword-nilai": {
+      "match": "\\b(valid|gimmick|zonk)\\b",
+      "name": "constant.language.jaksel"
+    },
+    "komentar": {
+      "match": "//.*$",
+      "name": "comment.line.double-slash.jaksel"
+    },
+    "operator-kata": {
+      "match": "\\b(nggak|dan|atau)\\b",
+      "name": "keyword.operator.word.jaksel"
+    },
+    "panggil-fungsi": {
+      "captures": {
+        "1": {
+          "name": "entity.name.function.jaksel"
+        }
+      },
+      "match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\s*(?=\\()",
+      "name": "meta.function-call.jaksel"
+    },
+    "string": {
+      "begin": "\"",
+      "end": "\"",
+      "name": "string.quoted.double.jaksel",
+      "patterns": [
+        {
+          "match": "\\\\.",
+          "name": "constant.character.escape.jaksel"
+        },
+        {
+          "match": "\\{[^{}]*\\}",
+          "name": "variable.interpolation.jaksel"
+        },
+        {
+          "match": "\\{\\{|\\}\\}",
+          "name": "constant.character.escape.jaksel"
+        }
+      ]
+    },
+    "fungsi-bawaan": {
+      "match": "\\b(spill|kepo|healing|panjang|angka|teks|rentang|acak|waktu|tanggal|petakan|saring|kumpulkan|baca_file|tulis_file|tambah_file)\\b",
+      "name": "support.function.jaksel"
+    }
+  },
+  "scopeName": "source.jaksel"
+}

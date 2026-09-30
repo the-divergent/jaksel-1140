@@ -1,0 +1,70 @@
+{
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "grammars": [
+      {
+        "language": "jaksel",
+        "path": "./syntaxes/jaksel.tmLanguage.json",
+        "scopeName": "source.jaksel"
+      }
+    ],
+    "languages": [
+      {
+        "aliases": [
+          "JakselScript",
+          "jaksel"
+        ],
+        "configuration": "./language-configuration.json",
+        "extensions": [
+          ".jaksel"
+        ],
+        "id": "jaksel"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "jaksel",
+        "path": "./snippets/jaksel.json"
+      }
+    ],
+    "configuration": {
+      "title": "JakselScript",
+      "properties": {
+        "jakselscript.serverPath": {
+          "type": "string",
+          "default": "jaksel",
+          "description": "Path ke executable 'jaksel' untuk language server (jaksel lsp)."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "jakselscript.restartServer",
+        "title": "JakselScript: Restart Language Server"
+      }
+    ]
+  },
+  "description": "Syntax highlighting, snippets & LSP (diagnostics, hover, completion) untuk bahasa pemrograman JakselScript (.jaksel)",
+  "displayName": "JakselScript",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "keywords": [
+    "jaksel",
+    "indonesia",
+    "esolang"
+  ],
+  "license": "MIT",
+  "name": "jakselscript",
+  "publisher": "the-divergent",
+  "version": "0.5.0",
+  "main": "./client/extension.js",
+  "activationEvents": [
+    "onLanguage:jaksel"
+  ],
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  }
+}

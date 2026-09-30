@@ -1,0 +1,12 @@
+// julid: modul demo 'ekspor' — cuma 'tambah' yang boleh di-collab
+bestie rahasia = 123
+
+talent tambah(a, b) {
+    balikin a + b
+}
+
+talent kali(a, b) {
+    balikin a * b
+}
+
+ekspor tambah

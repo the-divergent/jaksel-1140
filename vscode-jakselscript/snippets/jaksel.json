@@ -1,0 +1,130 @@
+{
+ "bestie": {
+  "body": [
+   "bestie ${1:nama} = ${2:nilainya}"
+  ],
+  "description": "Deklarasi variabel",
+  "prefix": "bestie"
+ },
+ "gamon": {
+  "body": [
+   "gamon {",
+   "\t${1}",
+   "}"
+  ],
+  "description": "Loop selamanya (pakai ghosting buat keluar)",
+  "prefix": "gamon"
+ },
+ "kalo": {
+  "body": [
+   "kalo ${1:kondisi} {",
+   "\t${2}",
+   "}"
+  ],
+  "description": "Percabangan if",
+  "prefix": "kalo"
+ },
+ "plot_twist": {
+  "body": [
+   "plot_twist {",
+   "\t${1}",
+   "}"
+  ],
+  "description": "Blok else",
+  "prefix": "plot_twist"
+ },
+ "selama": {
+  "body": [
+   "selama ${1:kondisi} {",
+   "\t${2}",
+   "}"
+  ],
+  "description": "Loop while",
+  "prefix": "selama"
+ },
+ "spill": {
+  "body": [
+   "spill(\"${1:pesan}\")"
+  ],
+  "description": "Cetak ke layar",
+  "prefix": "spill"
+ },
+ "stalk": {
+  "body": [
+   "stalk ${1:item} dalam ${2:daftar} {",
+   "\t${3}",
+   "}"
+  ],
+  "description": "Loop for-each",
+  "prefix": "stalk"
+ },
+ "talent": {
+  "body": [
+   "talent ${1:nama}(${2:params}) {",
+   "\t${3}",
+   "\tbalikin ${4:nilainya}",
+   "}"
+  ],
+  "description": "Definisi fungsi",
+  "prefix": "talent"
+ },
+ "yolo": {
+  "body": [
+   "yolo {",
+   "\t${1}",
+   "} yaudah ${2:e} {",
+   "\tspill(\"ketangkep: {${2:e}}\")",
+   "}"
+  ],
+  "description": "Try/catch",
+  "prefix": "yolo"
+ },
+ "kelas": {
+  "prefix": "kelas",
+  "description": "Definisi kelas + constructor lahir",
+  "body": [
+   "kelas ${1:Nama} {",
+   "\ttalent lahir(${2:params}) {",
+   "\t\tini.${3:atribut} = ${4:nilainya}",
+   "\t}",
+   "",
+   "\ttalent ${5:metode}() {",
+   "\t\tbalikin ${6:nilainya}",
+   "\t}",
+   "}"
+  ]
+ },
+ "warisi": {
+  "prefix": "warisi",
+  "description": "Kelas anak mewarisi induk",
+  "body": [
+   "kelas ${1:Anak} warisi ${2:Induk} {",
+   "\ttalent lahir(${3:params}) {",
+   "\t\tortu.lahir(${3:params})",
+   "\t}",
+   "}"
+  ]
+ },
+ "akhirnya": {
+  "prefix": "akhirnya",
+  "description": "Blok finally di yolo/yaudah",
+  "body": [
+   "yolo {",
+   "\t${1}",
+   "} yaudah ${2:e} {",
+   "\t${3}",
+   "} akhirnya {",
+   "\t${4}",
+   "}"
+  ]
+ },
+ "stalk_idx": {
+  "prefix": "stalk",
+  "description": "Loop for-each dengan indeks",
+  "body": [
+   "stalk ${1:i}, ${2:item} dalam ${3:daftar} {",
+   "\t${4}",
+   "}"
+  ]
+ }
+}

@@ -21,18 +21,14 @@ kalo nama == "" {
 Butuh **Python 3.8+** (tanpa dependensi lain).
 
 ```bash
-# cara 1: pip (paling gampang)
-pip install .
-
-# cara 2: installer
-./install.sh            # Linux / macOS
-.\install.ps1           # Windows (PowerShell)
-
-# cara 3: langsung tanpa install
-python -m jaksel gas contoh/halo.jaksel
+pip install git+https://github.com/the-divergent/jaksel-1140.git
 ```
 
 Abis itu perintah `jaksel` bisa dipanggil di mana aja.
+
+> 📖 **Tutorial lengkap dari nol** (termasuk beresi PATH di Windows,
+> install extension VS Code, cara run pakai tombol ▶, dan troubleshooting):
+> baca **[PANDUAN-INSTALASI.md](PANDUAN-INSTALASI.md)**.
 
 ## Cara pakai
 
@@ -190,7 +186,7 @@ Riwayat versi: [CHANGELOG.md](CHANGELOG.md).
 
 ```bash
 python tes/run_tests.py
-# 93 lolos, 0 gagal. Semua valid, bestie!
+# 106 lolos, 0 gagal. Semua valid, bestie!
 ```
 
 ## Struktur proyek
@@ -209,8 +205,8 @@ jakselscript/
 │   ├── std/             # modul standar (teks, angka, waktu, http)
 │   └── cli.py           # gas | cek | alihbahasakan | rapi | urai | lsp | debug | pasang | paket | repl | versi
 ├── bin/jaksel           # launcher CLI
-├── contoh/              # contoh program .jaksel (19 file)
-├── tes/run_tests.py     # test suite (93 kasus)
+├── contoh/              # contoh program .jaksel (23 file)
+├── tes/run_tests.py     # test suite (106 kasus)
 ├── vscode-jakselscript/ # extension VS Code (grammar + snippets + LSP client)
 ├── install.sh           # installer Linux/macOS
 ├── install.ps1          # installer Windows

@@ -1,0 +1,128 @@
+// Modul standar angka: pembantu matematika, bestie.
+// Pakai: collab "std/angka"
+talent bulat_bawah(x) {
+    bestie b = angka(teks(x).pisah(".")[0])
+    kalo x < 0 dan x != b {
+        balikin b - 1
+    }
+
+    balikin b
+}
+
+talent bulat_atas(x) {
+    bestie b = bulat_bawah(x)
+    kalo x == b {
+        balikin b
+    }
+
+    balikin b + 1
+}
+
+talent bulat(x) {
+    // bulat(2.5) -> 3, bulat(2.4) -> 2
+    kalo x - bulat_bawah(x) >= 0.5 {
+        balikin bulat_atas(x)
+    }
+
+    balikin bulat_bawah(x)
+}
+
+talent pangkat(a, b) {
+    bestie hasil = 1
+    stalk _ dalam rentang(b) {
+        hasil = hasil * a
+    }
+
+    balikin hasil
+}
+
+talent faktorial(n) {
+    klaim(n >= 0, "faktorial maunya angka >= 0, bestie.")
+    bestie hasil = 1
+    stalk i dalam rentang(1, n + 1) {
+        hasil = hasil * i
+    }
+
+    balikin hasil
+}
+
+talent fpb(a, b) {
+    // faktor persekutuan terbesar (Euclid)
+    bestie x = a
+    bestie y = b
+    selama y != 0 {
+        bestie sisa = x - bulat_bawah(x / y) * y
+        x = y
+        y = sisa
+    }
+
+    balikin x
+}
+
+talent kpk(a, b) {
+    balikin a * b / fpb(a, b)
+}
+
+talent prima(n) {
+    // cek bilangan prima, hasil valid/gimmick
+    kalo n < 2 {
+        balikin gimmick
+    }
+
+    stalk i dalam rentang(2, n) {
+        kalo n - bulat_bawah(n / i) * i == 0 {
+            balikin gimmick
+        }
+    }
+
+    balikin valid
+}
+
+talent median(daftar) {
+    bestie d = daftar.salin()
+    d.urut()
+    bestie n = panjang(d)
+    klaim(n > 0, "median butuh daftar yang nggak kosong.")
+    bestie tengah = bulat_bawah(n / 2)
+    kalo n - tengah * 2 == 1 {
+        balikin d[tengah]
+    }
+
+    balikin (d[tengah - 1] + d[tengah]) / 2
+}
+
+talent modus(daftar) {
+    // nilai yang paling sering muncul
+    bestie hitung = {}
+    stalk x dalam daftar {
+        bestie k = teks(x)
+        kalo k dalam hitung {
+            hitung[k] = hitung[k] + 1
+        } plot_twist {
+            hitung[k] = 1
+        }
+    }
+
+    bestie menang = zonk
+    bestie skor = -1
+    stalk k dalam hitung.kunci() {
+        kalo hitung[k] > skor {
+            skor = hitung[k]
+            menang = k
+        }
+    }
+
+    balikin menang
+}
+
+talent clamp(x, bawah, atas) {
+    kalo x < bawah {
+        balikin bawah
+    }
+
+    kalo x > atas {
+        balikin atas
+    }
+
+    balikin x
+}

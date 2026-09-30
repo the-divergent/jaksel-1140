@@ -1,0 +1,83 @@
+// Modul standar teks: pembantu olah string, bestie.
+// Pakai: collab "std/teks"
+talent judul(s) {
+    // "halo dunia" -> "Halo Dunia"
+    bestie hasil = []
+    stalk kata dalam s.pisah(" ") {
+        kalo panjang(kata) == 0 {
+            hasil.tambah(kata)
+            skip
+        }
+
+        hasil.tambah(kapital_awal(kata))
+    }
+
+    balikin hasil.gabung(" ")
+}
+
+talent kapital_awal(s) {
+    // "halo" -> "Halo"
+    kalo panjang(s) == 0 {
+        balikin s
+    }
+
+    bestie huruf = cari_semua(s, ".")
+    huruf[0] = huruf[0].besar()
+    balikin huruf.gabung("")
+}
+
+talent ulang(s, n) {
+    // ulang("ha", 3) -> "hahaha"
+    bestie hasil = ""
+    stalk _ dalam rentang(n) {
+        hasil = hasil + s
+    }
+
+    balikin hasil
+}
+
+talent pad_kiri(s, lebar, isi = " ") {
+    // pad_kiri("7", 3, "0") -> "007"
+    bestie t = teks(s)
+    selama panjang(t) < lebar {
+        t = isi + t
+    }
+
+    balikin t
+}
+
+talent pad_kanan(s, lebar, isi = " ") {
+    bestie t = teks(s)
+    selama panjang(t) < lebar {
+        t = t + isi
+    }
+
+    balikin t
+}
+
+talent terbalik(s) {
+    // terbalik("abc") -> "cba"
+    bestie huruf = cari_semua(s, ".")
+    huruf.balik()
+    balikin huruf.gabung("")
+}
+
+talent hitung_kata(s) {
+    // jumlah kata dipisah spasi
+    bestie n = 0
+    stalk kata dalam s.pisah(" ") {
+        kalo panjang(kata.potong()) > 0 {
+            n = n + 1
+        }
+    }
+
+    balikin n
+}
+
+talent slug(s) {
+    // "Halo Dunia!" -> "halo-dunia"
+    bestie t = s.kecil()
+    t = ganti_regex(t, "[^a-z0-9]+", "-")
+    t = ganti_regex(t, "^-|-$", "")
+    balikin t
+}

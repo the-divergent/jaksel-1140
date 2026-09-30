@@ -1,0 +1,60 @@
+// Contoh OOP JakselScript v0.4.0: kelas, warisi, lahir, ini, ortu.
+// Jalankan: jaksel gas contoh/oop.jaksel
+kelas Hewan {
+    talent lahir(nama) {
+        ini.nama = nama
+    }
+
+    talent suara() {
+        balikin "..."
+    }
+
+    talent tampil() {
+        balikin ini.nama + " bersuara: " + ini.suara()
+    }
+
+    talent sapa() {
+        spill("Halo, aku " + ini.nama + "!")
+    }
+}
+
+kelas Kucing warisi Hewan {
+    talent lahir(nama, warna = "oren") {
+        ortu.lahir(nama)
+        ini.warna = warna
+    }
+
+    talent suara() {
+        balikin "meong"
+    }
+}
+
+kelas Anjing warisi Hewan {
+    talent suara() {
+        balikin "guk guk"
+    }
+
+    talent jaga(rumah) {
+        balikin ini.nama + " jaga " + rumah + ": " + ini.suara()
+    }
+}
+
+bestie tom = Kucing("Tom")
+bestie heli = Kucing("Heli", "putih")
+bestie doggo = Anjing("Doggo")
+
+tom.sapa()
+spill(tom)
+spill(heli.warna)
+spill(doggo.jaga("rumah DIVERGENT"))
+spill(tipe(tom))
+
+// method sebagai nilai (callback)
+bestie f = tom.suara
+spill("callback: " + f())
+
+// daftar objek + polymorphism
+bestie kebun = [tom, doggo]
+stalk i, h dalam kebun {
+    spill(teks(i) + ". " + h.tampil())
+}

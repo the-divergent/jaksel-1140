@@ -1,0 +1,128 @@
+// v05 — fitur baru: destructuring, named/variadic, cocokkan, pilihan,
+// rahasia/statik/properti, typed catch, import alias/selektif
+// --- Destructuring ---
+bestie [a, b] = [10, 20]
+spill(a + b)  // 30
+bestie {x, y} = {"x": 3, "y": 4}
+spill(x * y)  // 12
+
+// --- Named & default args ---
+talent sapa(nama, sapaan = "Halo") {
+    balikin sapaan + ", " + nama + "!"
+}
+
+spill(sapa("Budi"))  // Halo, Budi!
+spill(sapa("Ani", sapaan = "Hai"))  // Hai, Ani!
+
+// --- Variadic ---
+talent total(...angka) {
+    bestie t = 0
+    stalk n dalam angka {
+        t = t + n
+    }
+
+    balikin t
+}
+
+spill(total(1, 2, 3, 4))  // 10
+bestie list = [5, 6]
+spill(total(...list))  // 11
+
+// --- cocokkan (pattern matching) ---
+talent cek(n) {
+    cocokkan n {
+        1 => {
+            balikin "satu"
+        },
+        2 => {
+            balikin "dua"
+        },
+        [pertama, ...sisa] => {
+            balikin "list:" + teks(pertama)
+        },
+        _ => {
+            balikin "lain"
+        },
+    }
+}
+
+spill(cek(1))  // satu
+spill(cek(2))  // dua
+spill(cek(99))  // lain
+
+// --- pilihan (enum) ---
+pilihan Warna {
+    MERAH,
+    HIJAU,
+    BIRU = 10
+}
+spill(Warna.MERAH)  // Warna.MERAH
+spill(Warna.BIRU)  // Warna.BIRU
+
+// --- cocokkan dengan enum ---
+talent warna_teks(w) {
+    cocokkan w {
+        Warna.MERAH => {
+            balikin "merah!"
+        },
+        Warna.BIRU => {
+            balikin "biru!"
+        },
+        _ => {
+            balikin "?"
+        },
+    }
+}
+
+spill(warna_teks(Warna.MERAH))  // merah!
+spill(warna_teks(Warna.BIRU))  // biru!
+
+// --- rahasia / statik / properti ---
+kelas Akun {
+    talent lahir(saldo) {
+        ini._Akun__saldo = saldo
+    }
+
+    properti saldo {
+        ambil {
+            balikin ini._Akun__saldo
+        }
+        taruh(v) {
+            kalo v < 0 {
+                red_flag "saldo nggak boleh minus"
+            }
+
+            ini._Akun__saldo = v
+        }
+    }
+
+    statik talent info() {
+        balikin "Bank Jaksel"
+    }
+}
+
+bestie ak = Akun(100)
+spill(ak.saldo)  // 100
+ak.saldo = 250
+spill(ak.saldo)  // 250
+spill(Akun.info())  // Bank Jaksel
+
+// --- typed catch & hierarki error ---
+kelas HttpError warisi Error {
+    talent lahir(kode, pesan) {
+        ini.kode = kode
+        ini.pesan = pesan
+    }
+}
+
+yolo {
+    red_flag HttpError(404, "nggak ketemu")
+} yaudah HttpError e {
+    spill("ketangkep: http " + teks(e.kode))  // ketangkep: http 404
+}
+
+// --- import alias & selektif ---
+collab "mtk" sebagai mm
+spill(mm.tambah(2, 3))  // 5
+collab "mtk" ambil kali
+spill(kali(4, 5))  // 20

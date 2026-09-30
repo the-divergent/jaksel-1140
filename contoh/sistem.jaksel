@@ -1,0 +1,53 @@
+// Contoh fitur sistem v0.4.0: args, env, json, regex, csv, file, agregat.
+// Jalankan: jaksel gas contoh/sistem.jaksel halo dunia
+spill("== args & env ==")
+spill("argumen: " + teks(args()))
+spill("HOME: " + env("HOME", "(nggak ada)"))
+spill("tipe(42) = " + tipe(42))
+spill("tipe([1]) = " + tipe([1]))
+spill("tipe(\"x\") = " + tipe("x"))
+
+spill("== json ==")
+bestie data = json_urai("{{\"nama\": \"DIVERGENT\", \"skor\": [10, 20]}}")
+spill(data.nama + " total " + teks(total(data.skor)))
+spill(json_tulis(data, valid))
+
+spill("== regex ==")
+bestie teks_acak = "telp: 0812-3456-7890, kode: AB123"
+spill("cocok angka? " + teks(cocok(teks_acak, "[0-9-]+")))
+spill("cari: " + cari(teks_acak, "[0-9-]+"))
+spill("semua angka: " + teks(cari_semua(teks_acak, "[0-9]+")))
+spill(ganti_regex("halo dunia", "[aeiou]", "*"))
+
+spill("== csv & file ==")
+csv_tulis("/tmp/nilai.jaksel.csv", [["nama", "nilai"], ["budi", "90"], ["sari", "85"]])
+bestie baris = csv_baca("/tmp/nilai.jaksel.csv")
+stalk i, b dalam baris {
+    spill(teks(i) + " -> " + b.gabung(" | "))
+}
+
+spill("ada file? " + teks(ada_file("/tmp/nilai.jaksel.csv")))
+spill("isi /tmp: " + teks(panjang(daftar_file("/tmp"))) + " entri")
+
+spill("== agregat ==")
+bestie angka2 = [5, 2, 8, 1, 9]
+spill("total=" + teks(total(angka2)) + " max=" + teks(terbesar(angka2)) + " min=" + teks(terkecil(angka2)) + " avg=" + teks(rerata(angka2)))
+
+spill("urut: " + teks(urut_dengan(["ccc", "a", "bb"], panjang)))
+spill("pasang: " + teks(pasangkan(["a", "b"], [1, 2])))
+
+spill("== klaim & jalankan ==")
+klaim(total([1, 2]) == 3, "matematika rusak?!")
+bestie hasil = jalankan("echo halo dari shell")
+spill("kode=" + teks(hasil.kode) + " keluar=" + hasil.keluar.potong())
+
+spill("== stalk berindeks & akhirnya ==")
+yolo {
+    red_flag "contoh error"
+} yaudah e {
+    spill("ketangkep: " + e)
+} akhirnya {
+    spill("blok akhirnya selalu jalan, bestie.")
+}
+
+spill("gas selesai!")

@@ -1,0 +1,41 @@
+// julid: demo fitur baru v0.6.0 — jalanin pakai: jaksel gas contoh/v06.jaksel
+spill("=== 1. Slice ===")
+bestie angka = [1, 2, 3, 4, 5]
+spill(angka[1:3])  // [2, 3]
+spill(angka[::2])  // [1, 3, 5]
+spill(angka[::-1])  // [5, 4, 3, 2, 1]
+bestie halo = "halo bestie"
+spill(halo[0:4])  // halo
+
+spill("=== 2. Null coalescing ?? ===")
+bestie nama = zonk
+spill(nama ?? "anonim")  // anonim
+spill(zonk ?? (zonk ?? "ketiga"))  // ketiga
+
+spill("=== 3. Ternary ===")
+bestie menang = valid
+spill("hadiah" kalo menang selain "zonk")  // hadiah
+spill("hadiah" kalo gimmick selain "zonk")  // zonk
+
+spill("=== 4. List comprehension ===")
+spill([x * 2 buat x dalam [1, 2, 3]])  // [2, 4, 6]
+spill([x buat x dalam [1, 2, 3, 4] kalo x > 2])  // [3, 4]
+spill([h buat h dalam "halo"])  // [h, a, l, o]
+
+spill("=== 5. Chained comparison ===")
+bestie x = 5
+spill(1 < x < 10)  // valid
+spill(10 < x < 20)  // gimmick
+
+spill("=== 6. Optional chaining ?. ===")
+bestie user = zonk
+spill(user?.nama ?? "anonim")  // anonim
+bestie asli = {"nama": "Budi"}
+spill(asli?.nama)  // Budi
+spill(asli?.umur ?? 0)  // 0
+
+spill("=== 7. ekspor (lihat contoh/modul_ekspor.jaksel) ===")
+collab "modul_ekspor" sebagai m
+spill(m.tambah(2, 3))  // 5
+
+spill("gas selesai, bestie!")

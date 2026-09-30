@@ -1,0 +1,25 @@
+// julid: method buat daftar, teks, dan kamus
+bestie buah = ["mangga", "apel"]
+buah.tambah("duku")
+spill(buah.gabung(", "))
+
+bestie angka = [5, 2, 8, 1]
+angka.urut()
+spill(angka)
+angka.balik()
+spill(angka)
+spill(angka.buang())
+spill(angka)
+
+bestie nama = "  JakselScript  "
+spill(nama.potong().kecil())
+spill("halo dunia".ganti("dunia", "bestie"))
+spill("a,b,c".pisah(","))
+spill("jaksel".mulai_dengan("jak"))
+spill("jaksel".berakhir_dengan("sel"))
+
+bestie biodata = {"nama": "Budi", "kota": "Surabaya"}
+spill(biodata.kunci())
+spill(biodata.ambil("umur", 20))
+biodata.hapus("kota")
+spill(biodata)

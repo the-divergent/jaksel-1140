@@ -1,0 +1,8 @@
+// modul pendukung buat tes v05 (import alias/selektif)
+talent tambah(a, b) {
+    balikin a + b
+}
+
+talent kali(a, b) {
+    balikin a * b
+}

@@ -1,0 +1,87 @@
+// Demo fitur v0.5.0 (deterministik buat test suite).
+// URL server lokal dikasih lewat env JAKSEL_HTTP_URL.
+spill("== parameter default ==")
+talent sapa(nama, sapaan = "halo") {
+    balikin sapaan + " " + nama
+}
+
+spill(sapa("budi"))
+spill(sapa("sari", "hai"))
+
+spill("== stalk berindeks ==")
+stalk i, buah dalam ["apel", "duku"] {
+    spill(teks(i) + ":" + buah)
+}
+
+spill("== akhirnya ==")
+yolo {
+    red_flag "duar"
+} yaudah e {
+    spill("tangkep")
+} akhirnya {
+    spill("beres")
+}
+
+spill("== tipe & klaim ==")
+spill(tipe(1) + "," + tipe("x") + "," + tipe([1]) + "," + tipe({"a": 1}) + "," + tipe(sapa))
+
+klaim(1 + 1 == 2, "matematika rusak")
+
+spill("== json ==")
+bestie d = json_urai("{{\"a\": 1, \"b\": [2, 3]}}")
+spill(teks(d.a + d.b[1]))
+spill(json_tulis({"x": 1}))
+
+spill("== regex ==")
+spill(teks(cocok("abc123", "[0-9]+")))
+spill(cari("abc123", "[0-9]+"))
+spill(teks(cari_semua("a1b22", "[0-9]+")))
+spill(ganti_regex("halo", "[aeiou]", "*"))
+
+spill("== csv & file ==")
+bestie dir = env("JAKSEL_TMP", "/tmp")
+bestie fcsv = dir + "/v04_nilai.csv"
+csv_tulis(fcsv, [["nama", "nilai"], ["budi", "90"]])
+bestie baris = csv_baca(fcsv)
+spill(baris[1].gabung("="))
+tulis_file(dir + "/v04_halo.txt", "halo\n")
+tambah_file(dir + "/v04_halo.txt", "dunia\n")
+spill(teks(panjang(baca_file(dir + "/v04_halo.txt").pisah("\n"))) + " baris")
+spill(teks(ada_file(fcsv)))
+spill(teks(panjang(daftar_file(dir))) + " entri")
+buat_folder(dir + "/v04_sub")
+spill(teks(ada_file(dir + "/v04_sub")))
+hapus_file(fcsv)
+spill(teks(ada_file(fcsv)))
+
+spill("== agregat ==")
+spill(teks(total([1, 2, 3, 4])))
+spill(teks(terbesar([1, 2, 3, 4])))
+spill(teks(terkecil([1, 2, 3, 4])))
+spill(teks(rerata([1, 2, 3, 4])))
+spill(teks(urut_dengan(["ccc", "a", "bb"], panjang)))
+spill(teks(pasangkan([1, 2], ["a", "b"])))
+
+spill("== dalam ==")
+spill(teks(2 dalam [1, 2, 3]))
+spill(teks("a" dalam "abc"))
+spill(teks("k" dalam {"k": 1}))
+
+spill("== args & env ==")
+spill(teks(args()))
+spill(env("JAKSEL_TEST_VAR", "kosong"))
+
+spill("== http lokal ==")
+bestie url = env("JAKSEL_HTTP_URL", "")
+kalo url != "" {
+    bestie j = http_get_json(url + "/data")
+    spill(j.pesan + ":" + teks(j.nilai))
+    spill(teks(panjang(http_get(url + "/teks")) > 0))
+    spill(http_post(url + "/echo", {"nama": "budi"}))
+}
+
+spill("== jalankan ==")
+bestie h = jalankan("echo oke")
+spill(teks(h.kode) + ":" + h.keluar.potong())
+
+spill("gas v0.5.0 selesai!")

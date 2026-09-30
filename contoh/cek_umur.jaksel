@@ -1,0 +1,17 @@
+// julid: program cek validitas bestie
+spill("Welcome to the skena!")
+
+bestie nama = kepo("Spill nama kamu dong: ")
+bestie umur = angka(kepo("Umur berapa? "))
+
+kalo umur < 0 {
+    red_flag "Umur minus? Gimmick banget."
+} plot_twist kalo umur < 17 {
+    spill("Sorry bestie, belum valid.")
+} plot_twist {
+    spill("Literally valid! Welcome to the circle, " + nama)
+}
+
+healing(1)
+spill("Udah healing, gas lagi!")
+cabut

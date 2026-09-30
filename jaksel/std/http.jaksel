@@ -1,0 +1,30 @@
+// Modul standar http: pembantu request tingkat tinggi, bestie.
+// Pakai: collab "std/http"
+talent ambil_json(url) {
+    // GET lalu parse JSON, sekalian validasi
+    bestie data = http_get_json(url)
+    klaim(data != zonk, "respons dari " + url + " kosong, bestie.")
+    balikin data
+}
+
+talent kirim_form(url, data) {
+    // POST form-urlencoded, balikin teks respons
+    balikin http_post(url, data)
+}
+
+talent unduh(url, path) {
+    // GET lalu simpan ke file
+    bestie isi = http_get(url)
+    tulis_file(path, isi)
+    balikin panjang(isi)
+}
+
+talent cek_status(url) {
+    // valid kalau URL-nya bisa dijangkau
+    yolo {
+        http_get(url)
+        balikin valid
+    } yaudah e {
+        balikin gimmick
+    }
+}

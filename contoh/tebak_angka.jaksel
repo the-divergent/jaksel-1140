@@ -1,0 +1,26 @@
+// julid: game tebak angka, seru bestie
+spill("=== Tebak Angka, bestie! ===")
+spill("Aku mikirin angka 1-10. Coba tebak!")
+
+bestie rahasia = 7
+bestie nyawa = 3
+
+selama nyawa > 0 {
+    bestie tebakan = angka(kepo("Tebakanmu (" + teks(nyawa) + " nyawa): "))
+    kalo tebakan == rahasia {
+        spill("Literally bener! Kamu valid banget!")
+        ghosting
+    } plot_twist kalo tebakan < rahasia {
+        spill("Kekecilan, bestie.")
+    } plot_twist {
+        spill("Kegedean, bestie.")
+    }
+
+    nyawa = nyawa - 1
+}
+
+kalo nyawa == 0 {
+    spill("Yaudah, nyawamu habis. Angkanya " + teks(rahasia))
+}
+
+spill("Thanks for playing!")

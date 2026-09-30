@@ -1,0 +1,11 @@
+// julid: fibonacci, klasik tapi valid
+talent fib(n) {
+    kalo n < 2 {
+        balikin n
+    }
+
+    balikin fib(n - 1) + fib(n - 2)
+}
+
+spill("fib(10) = " + teks(fib(10)))
+spill("fib(15) = " + teks(fib(15)))

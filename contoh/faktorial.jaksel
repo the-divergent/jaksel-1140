@@ -1,0 +1,12 @@
+// julid: faktorial pakai rekursi, which is keren
+talent faktorial(n) {
+    kalo n <= 1 {
+        balikin 1
+    }
+
+    balikin n * faktorial(n - 1)
+}
+
+stalk i dalam [0, 1, 2, 3, 4, 5] {
+    spill("faktorial(" + teks(i) + ") = " + teks(faktorial(i)))
+}

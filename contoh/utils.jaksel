@@ -1,0 +1,10 @@
+// julid: modul utilitas buat di-collab
+talent sapa(nama) {
+    balikin "Halo, " + nama + "! Literally seneng ketemu kamu."
+}
+
+talent kuadrat(x) {
+    balikin x * x
+}
+
+bestie VERSI_UTILS = "1.0"

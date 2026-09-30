@@ -1,0 +1,6 @@
+// julid: demo collab (import)
+collab "utils"
+
+spill(sapa("Budi"))
+spill("kuadrat 7 = " + teks(kuadrat(7)))
+spill("utils versi " + VERSI_UTILS)
